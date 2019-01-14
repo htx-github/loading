@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.shadow-box {
+				position: absolute;
+				width: 260px;
+				height: 260px;
+				/* border: 1px solid; */
+				/*去掉边框*/
+				left: 200px;
+			}
+
+			.shadow-box div {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				border-radius: 100%;
+				background: #1199ff;
+				float: right;
+				left: 50%;
+				margin-left: -25px;
+			}
+
+			/*旋转动画*/
+			@keyframes trotate {
+				from {
+					transform: rotate(0deg);
+				}
+
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+
+
+			/*box1应用旋转动画*/
+			/** 
+* box1 2.4s 
+* box2 2.2s完成 延时0.6s执行 
+* box3 2s完成 延时1.2s执行 
+* ... 
+* 时间依次减少，动画效果也就是越来越快 
+* 能追上上面一个动画 
+*/
+			.box1 {
+				animation: trotate 2.4s infinite linear;
+				z-index: 4;
+			}
+
+			.box2 {
+				/* 2s完成 */
+				animation: trotate 2.4s infinite linear;
+				/* 延时1.2s执行 */
+				animation-delay: 0.4s;
+				z-index: 3;
+			}
+
+			.box3 {
+				animation: trotate 2.4s infinite linear;
+				animation-delay: 0.8s;
+				z-index: 2;
+			}
+
+			.box4 {
+				animation: trotate 2.4s infinite linear;
+				animation-delay: 1.2s;
+				z-index: 1;
+			}
+
+			.box5 {
+				animation: trotate 2.4s infinite linear;
+				animation-delay: 1.6s;
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="loading">
+			<div class="shadow-box box1">
+				<div class="shadow"></div>
+			</div>
+			<div class="shadow-box box2">
+				<div class="shadow"></div>
+			</div>
+			<div class="shadow-box box3">
+				<div class="shadow"></div>
+			</div>
+			<div class="shadow-box box4">
+				<div class="shadow"></div>
+			</div>
+			<div class="shadow-box box5">
+				<div class="shadow"></div>
+			</div>
+		</div>
+	</body>
+</html>
